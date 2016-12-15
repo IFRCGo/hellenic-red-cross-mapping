@@ -1,0 +1,84 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+/* padding for header and footer */
+body{
+  padding-top: 50px;
+  padding-bottom: 40px;
+}
+
+.btn:focus, .btn:active {
+  outline: 0 !important;
+}
+
+.logo {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  height: 70px;
+  /*z-index: 99999;*/
+}
+
+#infoSidebar{
+  overflow:auto;
+}
+
+.btn-zoom{
+  position: absolute;
+  top: 10px;
+  right: 45px;
+  z-index: 9999;
+  background-color: #ffffff;
+  border-color: #AFAFB6;
+  font-weight: bold;
+  color: #6d6e70;
+  box-shadow: 1px 1px 9px #c3c3c5;
+}
+
+.navbar-PRC {
+  background-color: #f41c1c;
+  border-bottom: 2px solid black;
+  height: 50px;
+}
+
+.navbar-brand-PRC {
+  color: black;
+  font-size: 20px;
+  font-weight: bolder;
+  margin-left: 100px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+  background-color: #f5f5f5;
+  background-color: black;
+  text-align: center;
+  padding-top: 6px;
+}
+
+.motto-white {
+  color: #fff;
+  font-weight: bolder;
+  font-size: 120%;
+  margin-right: 6px;
+}
+
+.motto-red {
+  color: #ff1e19;
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+.col-motto {
+  background-color: black;
+}
+
+.container-motto {
+  background-color: black;
+}
