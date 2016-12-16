@@ -105,6 +105,15 @@ function mapChapterdata(){
 
 function onEachChapter(feature, layer){
   layer.bindPopup(feature.properties.NAME);
+  layer.on('mouseover', function (e) {
+            this.openPopup();
+        });
+        layer.on('mouseout', function (e) {
+            this.closePopup();
+        });
+  /*layer.on('mouse-over', function(e) {
+    chapterHover(e);
+  });*/
   layer.on('click', function(e) {
     chapterClick(e);
   });
@@ -121,6 +130,9 @@ function onEachChapter(feature, layer){
          //  <br>Contact Number:<span id="info-adminContact"></span>
          //  <br><span id="info-adminContact2"></span></h5>
 
+/*function chapterHover(e){
+  e.target.feature.properties.NAME;
+}*/
 
 function chapterClick(e){
   var chapterHtml = "";
