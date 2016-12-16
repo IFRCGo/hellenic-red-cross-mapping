@@ -17,35 +17,35 @@ L.control.zoom({position: 'topright'} ).addTo(chapterMap);
 
  var chapterIcon = L.icon({
   iconUrl: 'images/chapter_focus.png',
-  iconSize:     [20, 20], // size of the icon
+  iconSize:     [15, 15], // size of the icon
   iconAnchor:   [10, 10], // point of the icon which will correspond to marker's location
   popupAnchor:  [0, -12] // point from which the popup should open relative to the iconAnchor
 });
 
 var centreIcon = L.icon({
   iconUrl: 'images/centre.svg',
-  iconSize:     [20, 20], // size of the icon
+  iconSize:     [15, 15], // size of the icon
   iconAnchor:   [10, 10], // point of the icon which will correspond to marker's location
   popupAnchor:  [0, -12] // point from which the popup should open relative to the iconAnchor
 });
 
 var healthIcon = L.icon({
   iconUrl: 'images/health_centre.svg',
-  iconSize:     [20, 20], // size of the icon
+  iconSize:     [15, 15], // size of the icon
   iconAnchor:   [10, 10], // point of the icon which will correspond to marker's location
   popupAnchor:  [0, -12] // point from which the popup should open relative to the iconAnchor
 });
 
 var homelessIcon = L.icon({
   iconUrl: 'images/community.svg',
-  iconSize:     [20, 20], // size of the icon
+  iconSize:     [15, 15], // size of the icon
   iconAnchor:   [10, 10], // point of the icon which will correspond to marker's location
   popupAnchor:  [0, -12] // point from which the popup should open relative to the iconAnchor
 });
 
 var mfcIcon = L.icon({
   iconUrl: 'images/community.svg',
-  iconSize:     [20, 20], // size of the icon
+  iconSize:     [15, 15], // size of the icon
   iconAnchor:   [10, 10], // point of the icon which will correspond to marker's location
   popupAnchor:  [0, -12] // point from which the popup should open relative to the iconAnchor
 });
@@ -127,14 +127,15 @@ function chapterClick(e){
    var chapterName = e.target.feature.properties.NAME;
    var chapterType = e.target.feature.properties.CATEGORY;
    //chapterName= toTitleCase(chapterName);
-   chapterHtml += "<h2>" + chapterName + "<small>" + "  (" + chapterType + ")" + "</small></h2>";
+   chapterHtml += "<h2>" + chapterName + "<br/><small>" + "  (" + chapterType + ")" + "</small></h2>";
    if (e.target.feature.properties.TOWN !== null){
       var chapterLocation = e.target.feature.properties.TOWN;
-      chapterHtml += "<p>" + chapterLocation + "</p>"; 
+      var chapterRegion = e.target.feature.properties.REGION;
+      chapterHtml += "<p>" + chapterLocation + ", " + chapterRegion + "</p>"; 
     }
     if (e.target.feature.properties["BENEFICIARIES 2015"] !== null){
       var chapterBen = e.target.feature.properties["BENEFICIARIES 2015"];
-      chapterHtml += "<h4>Beneficiares in 2015: " + chapterBen + "</h4>"; 
+      chapterHtml += "<h4>Beneficiaries in 2015: " + chapterBen + "</h4>"; 
     }
     if (e.target.feature.properties.STAFF !== null){
       var chapterStaff = e.target.feature.properties.STAFF;
