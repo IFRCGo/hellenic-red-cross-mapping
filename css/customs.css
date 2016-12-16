@@ -8,6 +8,10 @@ body{
   padding-top: 65px;
 }
 
+.container {
+  width:90%;
+}
+
 .btn:focus, .btn:active {
   outline: 0 !important;
 }
