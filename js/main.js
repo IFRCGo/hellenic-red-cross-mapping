@@ -51,7 +51,7 @@ var mfcIcon = L.icon({
 });
 
 var tileLayerUrl = 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
-var attribution = 'Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a> | Map style by <a href="http://hot.openstreetmap.org" target="_blank">H.O.T.</a> | &copy; <a href="http://www.redcross.org.ph/" title="Philippine Red Cross" target="_blank">Philippine Red Cross</a> 2014 | <a title="Disclaimer" onClick="showDisclaimer();">Disclaimer</a>';
+var attribution = 'Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a> | Map style by <a href="http://hot.openstreetmap.org" target="_blank">H.O.T.</a> | &copy; <a href="http://www.redcross.gr/" title="Hellenic Red Cross" target="_blank">Hellenic Red Cross</a> 2016 | <a title="Disclaimer" onClick="showDisclaimer();">Disclaimer</a>';
 
 L.tileLayer(tileLayerUrl, {
   maxZoom: 18,
@@ -69,6 +69,11 @@ function getChapterData() {
       console.log("Success!");
       chapterData = data;
       mapChapterdata();
+      console.log(chapterData);
+      /*features = chapterData.features;
+      console.log(features);
+      console.log(features.properties.NAME[1]);*/
+      //sumChapterData(chapterData);
 
     },
     error: function(e) {
@@ -90,6 +95,32 @@ function setIconType(feature){
   if (feature.properties.CATEGORY==="Homeless Shelter"){return homelessIcon}
   if (feature.properties.CATEGORY==="Multifunctional Centre"){return mfcIcon}
 }
+
+/*function sumChapterData(data) {
+  var totStaff = 0;
+  console.log(data);
+  for( var i in data ) {
+    if( data.features.properties.NURSES[i] !== null ) {
+      totStaff += data[i];
+    }
+  }
+  return totStaff;
+  console.log(totStaff);
+}*/
+
+/*var sample = { a: 1 , b: 2 , c:3 };
+var summed = sum( sample );*/
+
+/*function sumChapterData(){
+  var totStaff = L.geojson(chapterData, {
+    pointToLayer: function (feature) {
+      return feature.properties.NURSES + feature.properties["SOCIAL WORKERS"];
+  },
+  onEachFeature: onEachChapter
+  });
+  console.log(totStaff);
+  $("#totStaff").html(totStaff);
+}*/
 
 function mapChapterdata(){
   var chapterMarkers = L.geoJson(chapterData, {
@@ -136,6 +167,7 @@ function onEachChapter(feature, layer){
 
 function chapterClick(e){
   var chapterHtml = "";
+  var staffHtml = "";
    var chapterName = e.target.feature.properties.NAME;
    var chapterType = e.target.feature.properties.CATEGORY;
    //chapterName= toTitleCase(chapterName);
@@ -147,11 +179,21 @@ function chapterClick(e){
     }
     if (e.target.feature.properties["BENEFICIARIES 2015"] !== null){
       var chapterBen = e.target.feature.properties["BENEFICIARIES 2015"];
-      chapterHtml += "<h4>Beneficiaries in 2015: " + chapterBen + "</h4>"; 
+      $('#totBen').html(chapterBen); 
     }
-    if (e.target.feature.properties.STAFF !== null){
-      var chapterStaff = e.target.feature.properties.STAFF;
-      chapterHtml += "<h4>Staff: " + chapterStaff + "</h4>"; 
+    if (e.target.feature.properties.STAFF !== "No"){
+      //var chapterStaff = e.target.feature.properties.STAFF;
+      
+      var chapterNurses = e.target.feature.properties.NURSES;
+      var chapterSocWorkers = e.target.feature.properties["SOCIAL WORKERS"];
+      var totStaff = chapterNurses+chapterSocWorkers;
+      $('#totStaff').html(totStaff); 
+    }
+    if (e.target.feature.properties.BENEFICIARIES !== null){
+      var chapterBen = e.target.feature.properties["BENEFICIARIES 2015"];
+      var chapterNurses = e.target.feature.properties.NURSES;
+      var chapterSocWorkers = e.target.feature.properties["SOCIAL WORKERS"];
+    staffHtml += "<h3>Beneficiaries 2015: <span class='pull-right' id='totBen'>" + chapterBen + "</span></h3><hr><h3>Nurses: <span class='pull-right'>" + chapterNurses + "</span><br/>" + "Social Workers: <span class='pull-right'>" + chapterSocWorkers + "</span></h3>";
     }
     /*if (e.target.feature.properties.N1 !== null){
       var chapterContact = e.target.feature.properties.N1;
@@ -196,8 +238,11 @@ function chapterClick(e){
      var adminContactAlt =e.target.feature.properties.contact_alt;
       chapterHtml += " | " + adminContactAlt + "</small>";  
     }*/
-    console.log(chapterHtml);
+    //console.log(chapterHtml);
+    
     $('#chapterInfo').html(chapterHtml);
+    console.log(staffHtml);
+    $('#staffInfo').html(staffHtml);
 
 }
   

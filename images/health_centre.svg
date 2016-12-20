@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><polygon points="95.91,33.164 50.07,10.377 4.23,33.164 0.07,24.791 50.005,-0.033 50.025,-0.092 50.07,-0.066 50.116,-0.092   50.135,-0.033 100.07,24.791 "></polygon><g><polygon points="36.893,99.83 36.893,70.683 63.247,70.683 63.247,99.83 76.737,99.83 76.737,33.164 63.247,33.164 63.247,59.394    36.893,59.394 36.893,33.164 23.404,33.164 23.404,99.83  "></polygon></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 20 20" style="enable-background:new 0 0 20 20;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FF0000;}
+	.st1{fill:#FFFFFF;}
+</style>
+<circle class="st0" cx="10" cy="10" r="10"/>
+<path class="st1" d="M17.4,7.3L10,3.6L2.6,7.3L1.9,6l8.1-4l0,0l0,0l0,0l0,0l8.1,4L17.4,7.3z M7.9,18.1v-4.7h4.3v4.7h2.2V7.3h-2.2
+	v4.2H7.9V7.3H5.7v10.8H7.9z"/>
+</svg>
